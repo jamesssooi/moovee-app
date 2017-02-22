@@ -1,21 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Router, Route, Link, IndexRoute,
+         hashHistory, browserHistory
+} from 'react-router'
+import Nav from 'components/Nav';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <Router history={hashHistory}>
+        <Route path='/' component={Root}>
+          <Route path='/book' component={Book} />
+          <Route path='*' component={NotFound} />
+        </Route>
+      </Router>
+    )
   }
 }
 
-export default App;
+class Root extends Component {
+  render() {
+    return (
+      <div>
+        <Nav />
+        { this.props.children }
+      </div>
+    )
+  }
+}
+
+const NotFound = () => <h1>404 Not Found</h1>
+const Book = () => <h1>Hello from Book</h1>
+
+export default App
