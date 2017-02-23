@@ -6,7 +6,10 @@ import FeaturedMovies from 'screens/Home/components/FeaturedMovies'
 export default function Home() {
   return (
     <div>
+      {/* Hero */}
       <Landing />
+
+      {/* Feature Bar */}
       <FeatureBar />
 
       {/* Movie Grid */}
