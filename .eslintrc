@@ -9,7 +9,8 @@
     "react/prefer-stateless-function": "warn",
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
-    "arrow-body-style": ["off", "as-needed"]
+    "arrow-body-style": ["off", "as-needed"],
+    "no-unused-vars": ["warn"]
   },
   "globals": {
     "document": true,
