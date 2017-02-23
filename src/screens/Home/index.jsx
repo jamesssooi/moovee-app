@@ -1,11 +1,16 @@
 import React from 'react'
-import Landing from 'screens/Home/components/Landing'
+import Landing from 'screens/Home/components/Hero'
+import FeatureBar from 'screens/Home/components/FeatureBar'
+import FeaturedMovies from 'screens/Home/components/FeaturedMovies'
 
-export default function Home(props) {
+export default function Home() {
   return (
     <div>
       <Landing />
-      This is Home
+      <FeatureBar />
+
+      {/* Movie Grid */}
+      <FeaturedMovies />
     </div>
   )
 }
