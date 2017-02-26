@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router'
 import { Flexbox, Button } from 'components/Layout'
 import { brandColor, secondaryColor } from 'shared/colors'
+import format from 'date-fns/format'
 
 const Wrapper = styled.div`
   background-color: ${secondaryColor};
@@ -67,6 +69,61 @@ const ContinueButton = styled(Button)`
   margin-bottom: 0;
 `
 
+const Subtitle = styled.span`
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  display: block;
+  margin-bottom: 1em;
+`
+
+const ShowtimeWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -3px;
+`
+
+const Showtime = (props) => {
+  const ShowtimeButton = styled(Button)`
+    margin: 0 3px;
+    padding: 6px;
+    background-color: ${brandColor};
+    border-color: ${brandColor};
+    text-align: center;
+    border-radius: 6px;
+    line-height: 1.2;
+    flex-grow: 1;
+  `
+
+  const ShowtimeTimeLabel = styled.span`
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    color: white;
+  `
+
+  const ShowtimeDiscountLabel = styled.span`
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: normal;
+  `
+
+  return (
+    <ShowtimeButton link>
+      <Link to={`/movies/${props.session.movieId}/book/${props.session.id}`}>
+        <ShowtimeTimeLabel>{format(props.session.time, 'h:mma')}</ShowtimeTimeLabel>
+        <ShowtimeDiscountLabel>{props.session.discount * 100}% off</ShowtimeDiscountLabel>
+      </Link>
+    </ShowtimeButton>
+  )
+}
+
 export default function BookPanel(props) {
   return (
     <Wrapper>
@@ -78,34 +135,40 @@ export default function BookPanel(props) {
         <FormGroup>
           <InputLabel>Pax</InputLabel>
           <Select>
-            {[1,2,3,4,5,6,7,8,9,10].map(value => <option>{value}</option>)}
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
           </Select>
         </FormGroup>
         <FormGroup>
           <InputLabel>Cinema</InputLabel>
           <Select>
             <option>TGV Sunway Pyramid</option>
+            <option>TGV 1 Utama</option>
+            <option>TGV Pavillion</option>
           </Select>
         </FormGroup>
         <FormGroup>
           <InputLabel>Date</InputLabel>
           <Select>
-            <option>26 Feb</option>
-          </Select>
-        </FormGroup>
-        <FormGroup>
-          <InputLabel>Showtime</InputLabel>
-          <Select>
-            <option>7:30PM</option>
+            <option>27 Feb</option>
+            <option>28 Feb</option>
+            <option>29 Feb</option>
           </Select>
         </FormGroup>
       </Form>
-      <ContinueButton
-        link block
-        href={`#/movies/${props.movie.id}/book/1`}
-      >
-        Continue
-      </ContinueButton>
+      <Subtitle>Select showtime</Subtitle>
+      <ShowtimeWrapper>
+        {props.sessions.map(session => (
+          <Showtime
+            session={session}
+            key={session.id}
+          />
+        ))}
+      </ShowtimeWrapper>
     </Wrapper>
   )
 }

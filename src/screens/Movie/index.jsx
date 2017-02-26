@@ -32,14 +32,14 @@ const Movie = (props) => {
   return (
     <div>
       <Hero
-        title="Rogue One: A Star Wars Story"
-        posterUrl="/assets/rogueone.jpg"
+        title={props.movie.title}
+        posterUrl={props.movie.posterUrl}
         coverUrl={coverImg}
         trailerUrl="1234"
       />
       <DetailsContainer>
         <Sidebar>
-          <BookPanel movie={props.movie} />
+          <BookPanel movie={props.movie} sessions={props.sessions} />
         </Sidebar>
         <MovieDetails movie={props.movie} />
       </DetailsContainer>
@@ -49,7 +49,8 @@ const Movie = (props) => {
 
 const getMovieSessionsByMovieId = (sessions, movieId) => {
   if (sessions === undefined || sessions === null) { return null }
-  const ids = Object.keys(sessions).filter(value => value.movieId === movieId)
+  const ids = Object.keys(sessions)
+                    .filter(value => sessions[value].movieId === movieId || true)
   return ids.map(value => sessions[value])
 }
 
@@ -57,7 +58,7 @@ const mapStateToProps = (state, ownProps) => {
   const movieId = ownProps.params.movieId
   return {
     movie: state.movies.byId[movieId],
-    sessions: getMovieSessionsByMovieId(state.movieSessions, movieId)
+    sessions: getMovieSessionsByMovieId(state.movieSessions.byId, movieId)
   }
 }
 

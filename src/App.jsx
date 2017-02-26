@@ -8,7 +8,7 @@ import smoothScroll from 'smooth-scroll'
 
 // Component imports
 import Root from 'components/Root'
-import Home from 'screens/Home'
+import Home, { onEnterHomePage } from 'screens/Home'
 import Movie, { onEnterMoviePage } from 'screens/Movie'
 import { BookConfirmation, BookSuccess, onEnterConfirmationPage, onEnterSuccessPage } from 'screens/Book'
 
@@ -42,7 +42,7 @@ class App extends Component {
         <Router history={hashHistory} onUpdate={() => smoothScroll.animateScroll(0)}>
           <Route path="/" component={Root}>
             {/* Homepage */}
-            <IndexRoute component={Home} />
+            <IndexRoute component={Home} onEnter={onEnterHomePage(store)} />
 
             {/* Movies */}
             <Route path="/movies">

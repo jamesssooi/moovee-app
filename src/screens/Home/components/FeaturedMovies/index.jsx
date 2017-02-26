@@ -22,17 +22,24 @@ const SectionHeading = styled.span`
   color: ${textColor};
 `
 
-export default function FeaturedMovies() {
+export default function FeaturedMovies(props) {
   return (
     <Wrapper>
       {/* Latest offers */}
       <FeaturedSection>
         <SectionHeading>Latest offers</SectionHeading>
         <MovieGrid>
-          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          {Object.keys(props.movies)
+            .filter(movieId => [0, 4, 2, 8].indexOf(parseInt(movieId)) > -1)
+            .map(id => (
+              <MovieThumbnail
+                id={props.movies[id].movieId}
+                key={props.movies[id].movieId}
+                title={props.movies[id].title}
+                poster={props.movies[id].posterUrl}
+              />
+            ))
+          }
         </MovieGrid>
       </FeaturedSection>
 
@@ -40,10 +47,17 @@ export default function FeaturedMovies() {
       <FeaturedSection>
         <SectionHeading>Hot movies</SectionHeading>
         <MovieGrid>
-          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          {Object.keys(props.movies)
+            .filter(movieId => [3, 1, 5, 6].indexOf(parseInt(movieId)) > -1)
+            .map(id => (
+              <MovieThumbnail
+                id={props.movies[id].movieId}
+                key={props.movies[id].movieId}
+                title={props.movies[id].title}
+                poster={props.movies[id].posterUrl}
+              />
+            ))
+          }
         </MovieGrid>
       </FeaturedSection>
       
@@ -51,10 +65,17 @@ export default function FeaturedMovies() {
       <FeaturedSection>
         <SectionHeading>Coming soon</SectionHeading>
         <MovieGrid>
-          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          {Object.keys(props.movies)
+            .filter(movieId => [9, 10, 11, 12].indexOf(parseInt(movieId)) > -1)
+            .map(id => (
+              <MovieThumbnail
+                id={props.movies[id].movieId}
+                key={props.movies[id].movieId}
+                title={props.movies[id].title}
+                poster={props.movies[id].posterUrl}
+              />
+            ))
+          }
         </MovieGrid>
       </FeaturedSection>
     </Wrapper>

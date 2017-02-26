@@ -8,25 +8,25 @@ import parse from 'date-fns/parse'
 const mockData = [
   {
     id: 1,
-    movieId: 2,
+    movieId: '1',
     cinema: 'TGV Sunway Pyramid',
-    time: '2016-02-25T19:30:00',
+    time: '2016-02-27T19:30:00',
     price: 10,
     discount: 0.5
   },
   {
     id: 2,
-    movieId: 2,
+    movieId: '1',
     cinema: 'TGV Sunway Pyramid',
-    time: '2016-02-25T20:00:00',
+    time: '2016-02-27T20:00:00',
     price: 10,
     discount: 0.4
   },
   {
     id: 3,
-    movieId: 2,
+    movieId: '1',
     cinema: 'TGV Sunway Pyramid',
-    time: '2016-02-25T21:00:00',
+    time: '2016-02-27T21:00:00',
     price: 10,
     discount: 0.3
   }
