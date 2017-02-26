@@ -1,7 +1,7 @@
 import { fetchMovie } from 'services/movies/actions'
 import { fetchMovieSessions } from 'services/movieSessions/actions'
 
-export const onEnterMoviePage = (store) => {
+export const onEnterConfirmationPage = (store) => {
   return (nextState, replace, done) => {
     const movieId = nextState.params.movieId
     if (!store.getState().movies.byId[movieId]) {

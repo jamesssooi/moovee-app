@@ -31,8 +31,8 @@ export const fetchMovie = movieId => (dispatch, getState) => {
     window.setTimeout(() => {
       dispatch(isFetching(false))
       dispatch(fetchMovieSuccess({
-        movieId: movieId,
-        title: 'Rogue One'
+        id: movieId,
+        title: 'Rogue One: A Star Wars Story'
       }))
       resolve(getState().movies.byId[movieId])
     }, 1000)

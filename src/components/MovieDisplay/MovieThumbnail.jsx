@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { brandColor, secondaryColor } from 'shared/colors'
+import { Link } from 'react-router'
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
+  display: block;
   width: ${props => (props.width ? props.width : 'auto')};
   margin-bottom: 1.5em;
   ${props => (!props.standalone && `
@@ -37,7 +39,7 @@ const Title = styled.span`
 
 export default function MovieThumbnail(props) {
   return (
-    <Wrapper {...props}>
+    <Wrapper data-width={props.width} data-standalone={props.standalone} to={`/movies/${props.id}`}>
       <Banner>30% off</Banner>
       <Poster src={props.poster} alt={props.title} />
       <Textbox>
@@ -48,9 +50,10 @@ export default function MovieThumbnail(props) {
 }
 
 MovieThumbnail.propTypes = {
+  id: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
   poster: React.PropTypes.string.isRequired,
-  banner: React.PropTypes.string
+  banner: React.PropTypes.string,
 }
 
 MovieThumbnail.defaultProps = {

@@ -29,10 +29,10 @@ export default function FeaturedMovies() {
       <FeaturedSection>
         <SectionHeading>Latest offers</SectionHeading>
         <MovieGrid>
-          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
+          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
         </MovieGrid>
       </FeaturedSection>
 
@@ -40,10 +40,10 @@ export default function FeaturedMovies() {
       <FeaturedSection>
         <SectionHeading>Hot movies</SectionHeading>
         <MovieGrid>
-          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
+          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
         </MovieGrid>
       </FeaturedSection>
       
@@ -51,10 +51,10 @@ export default function FeaturedMovies() {
       <FeaturedSection>
         <SectionHeading>Coming soon</SectionHeading>
         <MovieGrid>
-          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
-          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" />
+          <MovieThumbnail title="Rogue Two" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
+          <MovieThumbnail title="Rogue One" poster="/assets/rogueone.jpg" id="1" />
         </MovieGrid>
       </FeaturedSection>
     </Wrapper>

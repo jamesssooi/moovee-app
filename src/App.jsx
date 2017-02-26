@@ -4,11 +4,13 @@ import { createStore, applyMiddleware } from 'redux'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import thunk from 'redux-thunk'
 import rootReducer from 'reducers'
+import smoothScroll from 'smooth-scroll'
 
 // Component imports
 import Root from 'components/Root'
 import Home from 'screens/Home'
 import Movie, { onEnterMoviePage } from 'screens/Movie'
+import { BookConfirmation, BookSuccess, onEnterConfirmationPage, onEnterSuccessPage } from 'screens/Book'
 
 // Create redux store
 const store = createStore(
@@ -37,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router history={hashHistory}>
+        <Router history={hashHistory} onUpdate={() => smoothScroll.animateScroll(0)}>
           <Route path="/" component={Root}>
             {/* Homepage */}
             <IndexRoute component={Home} />
@@ -47,11 +49,20 @@ class App extends Component {
               <IndexRoute component={CurrentRoute} />
               <Route
                 path="/movies/:movieId"
-                component={Movie}
                 onEnter={onEnterMoviePage(store)}
               >
-                <IndexRoute component={CurrentRoute} />
-                <Route path="/movies/:movieId/purchase" component={CurrentRoute} />
+                <IndexRoute component={Movie} />
+                <Route
+                  path="/movies/:movieId/book/:movieSessionId"
+                  onEnter={onEnterConfirmationPage(store)}
+                >
+                  <IndexRoute component={BookConfirmation} />
+                  <Route
+                    path="success"
+                    component={BookSuccess}
+                    onEnter={onEnterSuccessPage(store)}
+                  />
+                </Route>
               </Route>
             </Route>
 
