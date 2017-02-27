@@ -46,7 +46,7 @@ export default function Nav(props) {
           <NavList>
             <NavLink to="/movies">Movies</NavLink>
             <NavLink to="/cinemas">Cinemas</NavLink>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/login">Logout</NavLink>
           </NavList>
         </Flexbox>
       </Container>
