@@ -29,9 +29,7 @@ export const Button = (props) => {
   ]
 
   let ButtonTag = null
-  // if (props.to) { ButtonTag = Link } else {
   ButtonTag = props.link ? LinkButton : ButtonButton
-  // }
 
   return (
     <ButtonTag

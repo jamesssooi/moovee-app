@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import format from 'date-fns/format'
 import { connect } from 'react-redux'
+import { makeBooking } from 'services/bookings/actions'
 import { Button, Flexbox, Container } from 'components/Layout'
 import { brandColor, secondaryColor } from 'shared/colors'
 import { Panel, PanelTitle, PanelSubtitle } from './../components/Panel'
@@ -117,7 +118,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
   return {
 
   }

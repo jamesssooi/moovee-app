@@ -12,6 +12,12 @@ const initialState = {
 }
 
 const bookings = handleActions({
+  BOOKING_ADD: (state, action) => {
+    return {
+      ...state,
+      byId: { ...state.byId, [action.payload.id]: action.payload }
+    }
+  },
   BOOKING_FETCH: (state) => {
     return { ...state, isFetching: true }
   },

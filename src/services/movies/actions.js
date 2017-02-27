@@ -109,7 +109,7 @@ export const fetchMovie = movieId => (dispatch, getState) => {
 
       dispatch(fetchMovieSuccess(mockData[idx]))
       resolve(getState().movies.byId[movieId])
-    }, 1000)
+    }, 500)
   })
 }
 

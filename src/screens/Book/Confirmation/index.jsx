@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import format from 'date-fns/format'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
+import { makeBooking } from 'services/bookings/actions'
 import FAIcon from 'components/FAIcon'
 import { Button, Container } from 'components/Layout'
 import { brandColor } from 'shared/colors'
@@ -74,7 +75,7 @@ const Confirmation = (props) => {
         <PaymentButton
           block
           link
-          href={`#/movies/${props.movie.id}/book/1/success?id=A7C8JK`}
+          onClick={() => onSubmit(props)}
         >
           Proceed to payment
           {props.isFetching &&
@@ -86,6 +87,11 @@ const Confirmation = (props) => {
   )
 }
 
+function onSubmit(props) {
+  props.makeBooking('A7C8JK', props.location.query.quantity || 1)
+  props.router.push(`/movies/${props.movie.movieId}/book/${props.session.id}/success?id=A7C8JK`)
+}
+
 const mapStateToProps = (state, ownProps) => {
   return {
     isFetching: state.bookings.isFetching,
@@ -94,9 +100,11 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-
+    makeBooking: (bookingId, quantity) => {
+      dispatch(makeBooking(bookingId, quantity))
+    }
   }
 }
 

@@ -27,3 +27,14 @@ export const fetchBooking = bookingId => (dispatch, getState) => {
     }, 1000)
   })
 }
+
+export const makeBooking = (bookingId, quantity) => {
+  return {
+    type: 'BOOKING_ADD',
+    payload: {
+      id: bookingId,
+      quantity: quantity,
+      seats: mockData.seats
+    }
+  }
+}

@@ -50,8 +50,8 @@ const Movie = (props) => {
 const getMovieSessionsByMovieId = (sessions, movieId) => {
   if (sessions === undefined || sessions === null) { return null }
   const ids = Object.keys(sessions)
-                    .filter(value => sessions[value].movieId === movieId || true)
-  return ids.map(value => sessions[value])
+                    // .filter(value => sessions[value].movieId === movieId)
+  return ids.map(value => ({ ...sessions[value], movieId: movieId }))
 }
 
 const mapStateToProps = (state, ownProps) => {

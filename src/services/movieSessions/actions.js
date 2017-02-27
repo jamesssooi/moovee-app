@@ -54,6 +54,6 @@ export const fetchMovieSessions = movieId => (dispatch, getState) => {
       const data = ids.map(value => getState().movieSessions.byId[value])
 
       resolve(data)
-    }, 1500)
+    }, 500)
   })
 }
